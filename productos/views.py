@@ -55,6 +55,7 @@ class ProductoEdit(View):
         producto = get_object_or_404(Producto, id=id, estado=True)
         productos = Producto.objects.filter(estado=True)
         form = ProductoForm(instance=producto)
+        print(producto.categoria_id)
         ctx = {
             "form": form,
             "productos": productos,

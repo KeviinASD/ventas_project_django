@@ -22,3 +22,8 @@ class ProductoForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(ProductoForm, self).__init__(*args, **kwargs)
+        # Filtrar productos con estado igual a 1
+        self.fields['categoria'].queryset = self.fields['categoria'].queryset.filter(estado=True)
+        self.fields['unidad'].queryset = self.fields['unidad'].queryset.filter(estado=True)
+        
+        
